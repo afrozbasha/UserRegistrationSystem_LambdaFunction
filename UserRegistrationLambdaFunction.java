@@ -23,56 +23,51 @@ public class UserRegistrationLambdaFunction {
 
     public void nameIsValid(String name) throws UserRegistrationException{
         try {
-            if (name.isEmpty()) throw new UserRegistrationException("Enter value is Empty", UserRegistrationException.ExceptionType.emptyType);
-            else if (checkValid.mathPattern(namePattern, name)){
+           if (checkValid.mathPattern(namePattern, name)){
                 System.out.println("Perfect! First #Name");
             }else {
-                System.out.println("Please Enter a Valid First name with Only \"One Starting Capital\" latter");
+                 throw new UserRegistrationException("Please Enter a Valid First name with Only \"One Starting Capital\" latter");
             }
-        }catch (NullPointerException np){
-            throw new UserRegistrationException("Enterd null", UserRegistrationException.ExceptionType.nullType);
+        }catch (UserRegistrationException e){
+            System.out.println(e.getMessage());
         }
     }
 
     public void eMailIsValid(String email) throws UserRegistrationException{
         try {
-            if (email.isEmpty()) throw new UserRegistrationException("Enter value is Empty", UserRegistrationException.ExceptionType.emptyType);
-            else if ( (checkValid.mathPattern(emailPattern1, email)) || (checkValid.mathPattern(emailPattern2, email)) ){
+            if ( (checkValid.mathPattern(emailPattern1, email)) || (checkValid.mathPattern(emailPattern2, email)) ){
                 System.out.println("Perfect! Email #Name");
             }else {
-                System.out.println("Please Enter a Valid Email with Only \"example.abc@bl.co.in\" and universal email latter");
+                throw new UserRegistrationException("Please Enter a Valid Email with Only \"example.abc@bl.co.in\" and universal email latter");
             }
-        }catch (NullPointerException np){
-            throw new UserRegistrationException("Enterd null", UserRegistrationException.ExceptionType.nullType);
+        }catch (UserRegistrationException e){
+            System.out.println(e.getMessage());
         }
     }
 
 
     public void phoneNumIsValid(String phonenum) throws UserRegistrationException{
         try {
-            if (phonenum.isEmpty()) throw new UserRegistrationException("Enter value is Empty", UserRegistrationException.ExceptionType.emptyType);
-            else if (checkValid.mathPattern(phoneNumPattern, phonenum)){
+            if (checkValid.mathPattern(phoneNumPattern, phonenum)){
                 System.out.println("Perfect! #phoneNum");
             }else {
-                System.out.println("Please Enter a Valid Mobile Num ex:- 90 9533182605");
+                throw new UserRegistrationException("Please Enter a Valid Mobile Num ex:- 90 9533182605");
             }
-        }catch (NullPointerException np){
-            throw new UserRegistrationException("Enterd null", UserRegistrationException.ExceptionType.nullType);
+        }catch (UserRegistrationException e){
+            System.out.println(e.getMessage());
         }
     }
 
 
     public void passWordIsValid(String password) throws UserRegistrationException{
         try {
-            if (password.isEmpty()) throw new UserRegistrationException("Enter value is Empty", UserRegistrationException.ExceptionType.emptyType);
-            //return (  );
-            else if ( (checkValid.mathPattern(passWordPattern1, password)) || (checkValid.mathPattern(passWordPattern2, password)) ){
+            if ( (checkValid.mathPattern(passWordPattern1, password)) || (checkValid.mathPattern(passWordPattern2, password)) ){
                 System.out.println("Perfect! #password");
             }else {
-                System.out.println("Please Enter a Valid password, it should have minimum 8 characters Or it should have minimum 8 characters with, 1 upper case, 1 Numeric and 1 Special Char");
+                throw new UserRegistrationException("Please Enter a Valid password, it should have minimum 8 characters Or it should have minimum 8 characters with, 1 upper case, 1 Numeric and 1 Special Char");
             }
-        }catch (NullPointerException np){
-            throw new UserRegistrationException("Enterd null", UserRegistrationException.ExceptionType.nullType);
+        }catch (UserRegistrationException e){
+            System.out.println(e.getMessage());
         }
     }
 
