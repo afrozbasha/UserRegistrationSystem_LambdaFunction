@@ -1,13 +1,9 @@
 package com.UserRegistrationLambdaFunction;
 
 public class UserRegistrationException extends Exception{
-    enum ExceptionType{
-        nullType, emptyType
-    }
-    ExceptionType type;
-    public UserRegistrationException(String message, ExceptionType type){
+   
+    public UserRegistrationException(String message){
         super(message);
-        this.type = type;
     }
 
 }
